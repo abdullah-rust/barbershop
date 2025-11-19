@@ -1,0 +1,164 @@
+/* src/components/Footer.module.css */
+
+.footer {
+  background-color: var(--color-bg-dark); /* Deep Dark background */
+  color: var(--color-text-light);
+  padding: 4rem 4rem 1rem 4rem; /* Top padding zyada rakha */
+  border-top: 3px solid var(--color-primary); /* Gold line on top */
+}
+
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto 3rem auto; /* Center aur bottom space */
+  padding-bottom: 2rem;
+}
+
+.footerSection {
+  flex: 1; /* Equal width sections */
+  max-width: 350px;
+}
+
+/* --- 1. BRAND & LOGO --- */
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-family-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.logopng {
+  width: 30px;
+  height: auto;
+  margin-right: 10px;
+  filter: drop-shadow(0 0 3px var(--color-primary));
+}
+
+.tagline {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 1.5rem;
+}
+
+/* Social Icons */
+.socialLinks {
+  display: flex;
+  gap: 1rem;
+}
+
+.socialIcon {
+  color: var(--color-text-light);
+  transition: color 0.3s ease, transform 0.2s;
+}
+
+.socialIcon:hover {
+  color: var(--color-primary);
+  transform: translateY(-3px); /* Lift effect */
+}
+
+/* --- 2. LINKS & 3. CONTACT --- */
+.sectionTitle {
+  font-family: var(--font-family-serif);
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+}
+
+.linkList li {
+  margin-bottom: 0.7rem;
+}
+
+.footerLink {
+  color: var(--color-text-light);
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.footerLink:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* Contact Items */
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.contactIcon {
+  color: var(--color-primary);
+  font-size: 1.1rem;
+  margin-right: 10px;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.timings {
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+/* --- COPYRIGHT BAR --- */
+.footerBottom {
+  text-align: center;
+  border-top: 1px solid rgba(245, 245, 245, 0.1);
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* 📱 RESPONSIVENESS */
+@media (max-width: 900px) {
+  .footerContainer {
+    flex-wrap: wrap; /* Sections ko wrap karein */
+  }
+
+  .footerSection {
+    flex: 1 1 45%; /* Tablet par 2 columns */
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 3rem 1.5rem 1rem 1.5rem;
+  }
+
+  .footerContainer {
+    flex-direction: column; /* Mobile par single column */
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .footerSection {
+    flex: 1 1 100%; /* Full width */
+    max-width: 100%;
+  }
+
+  .logo {
+    justify-content: center; /* Logo ko center kiya */
+    margin-bottom: 0.5rem;
+  }
+
+  .tagline {
+    text-align: center;
+  }
+
+  .socialLinks {
+    justify-content: center; /* Icons ko center kiya */
+  }
+}

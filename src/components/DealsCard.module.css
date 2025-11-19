@@ -1,0 +1,267 @@
+/* src/components/DealsCard.module.css */
+
+.card {
+  background: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 100%);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -2px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    #ffd700,
+    var(--color-primary)
+  );
+  opacity: 0.3;
+  transition: opacity 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(161, 131, 91, 0.6);
+}
+
+.card:hover::before {
+  opacity: 0.6;
+}
+
+/* Popular Card Special Styling */
+.popularCard {
+  border: 2px solid var(--color-primary);
+}
+
+.popularCard::before {
+  opacity: 0.5;
+}
+
+/* Popular Badge */
+.popularBadge {
+  position: absolute;
+  top: 20px;
+  left: -5px;
+  background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 10;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.fireIcon {
+  animation: flame 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes flame {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+/* Discount Ribbon */
+.discountRibbon {
+  position: absolute;
+  top: 20px;
+  right: -35px;
+  background: linear-gradient(45deg, var(--color-primary), #ffd700);
+  color: var(--color-secondary);
+  padding: 0.5rem 2rem;
+  font-weight: 800;
+  font-size: 0.9rem;
+  transform: rotate(45deg);
+  z-index: 10;
+  box-shadow: 0 4px 15px rgba(161, 131, 91, 0.5);
+}
+
+/* --- IMAGE AREA --- */
+.imageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.dealImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s ease;
+  filter: brightness(0.9) saturate(1.1);
+}
+
+.card:hover .dealImage {
+  transform: scale(1.1);
+}
+
+/* Price Tag Style */
+.priceTag {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background: rgba(18, 18, 18, 0.95);
+  backdrop-filter: blur(10px);
+  color: var(--color-primary);
+  padding: 0.8rem 1.2rem;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 1.2rem;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  border: 1px solid rgba(161, 131, 91, 0.3);
+}
+
+.originalPrice {
+  font-size: 0.8rem;
+  color: #ff6b6b;
+  text-decoration: line-through;
+  font-weight: 600;
+}
+
+/* --- CONTENT AREA --- */
+.content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(26, 26, 26, 0.9) 0%,
+    rgba(18, 18, 18, 1) 100%
+  );
+}
+
+.name {
+  font-family: var(--font-family-serif);
+  font-size: 2rem;
+  background: linear-gradient(45deg, var(--color-primary), #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.description {
+  color: #e0e0e0;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  line-height: 1.6;
+}
+
+/* Features List */
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.featureIcon {
+  color: var(--color-primary);
+  font-size: 1rem;
+}
+
+/* Savings Info */
+.savings {
+  background: rgba(161, 131, 91, 0.1);
+  border: 1px solid rgba(161, 131, 91, 0.3);
+  border-radius: 8px;
+  padding: 0.8rem;
+  text-align: center;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+/* CTA Button */
+.ctaButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, var(--color-primary), #ffd700);
+  color: var(--color-secondary);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(161, 131, 91, 0.4);
+}
+
+.ctaButton:hover {
+  color: var(--color-secondary);
+}
+
+/* 📱 RESPONSIVENESS */
+@media (max-width: 768px) {
+  .card {
+    margin: 0 1rem;
+  }
+
+  .name {
+    font-size: 1.6rem;
+  }
+
+  .priceTag {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .content {
+    padding: 1.5rem;
+  }
+
+  .popularBadge {
+    font-size: 0.7rem;
+    padding: 0.4rem 1rem;
+  }
+
+  .discountRibbon {
+    font-size: 0.8rem;
+    padding: 0.4rem 1.5rem;
+    right: -30px;
+  }
+}

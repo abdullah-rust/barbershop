@@ -1,0 +1,256 @@
+/* src/components/Header.module.css - Optimized and Next Level */
+
+/* --- Base Header Style --- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* Modern Dark/Glassy Look */
+  background-color: rgba(18, 18, 18, 0.95); /* Thoda zyada solid */
+  backdrop-filter: blur(10px); /* Enhanced Glassy effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+
+  padding: 1rem 4rem; /* Desktop par zyada space */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Stronger Soft shadow */
+}
+
+/* --- 1. Logo Styling --- */
+.logo a {
+  display: flex; /* Logo aur icon/image ko align karne ke liye */
+  align-items: center;
+  font-family: var(--font-family-serif);
+  font-size: 2rem; /* Thoda bada size */
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 1.5px;
+  transition: color 0.3s ease;
+}
+
+.logo a:hover {
+  color: var(--color-text-light);
+}
+
+/* New: Logo PNG/Image Styling */
+.logopng {
+  width: 35px; /* Thoda bada kiya */
+  height: auto;
+  margin-right: 10px; /* Text se thoda door */
+  filter: drop-shadow(0 0 5px var(--color-primary)); /* Gold effect */
+}
+
+/* --- 2. Desktop Navigation --- */
+.navDesktop {
+  display: block;
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  gap: 3rem; /* Links ke beech mein space badhaya */
+}
+
+.navLink {
+  font-size: 1.05rem; /* Thoda bada text */
+  font-weight: 500;
+  color: var(--color-text-light);
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navLink:hover {
+  color: var(--color-primary);
+}
+
+/* Active Link Indicator (Modern Underline) */
+.navLink.active {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.navLink.active::after {
+  content: "";
+  position: absolute;
+  bottom: -8px; /* Thoda neeche kiya */
+  left: 50%;
+  width: 120%; /* Link se thoda zyada lamba */
+  height: 3px; /* Thoda mota kiya */
+  background-color: var(--color-primary);
+  /* Chota sa animation effect */
+  transform: translateX(-50%) scaleX(0.8); /* Center se thoda chota dikhe */
+  transition: transform 0.3s ease;
+  border-radius: 2px;
+}
+/* Hover par bhi underline effect */
+.navLink:hover::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  width: 120%;
+  height: 3px;
+  background-color: rgba(161, 131, 91, 0.5); /* Faint gold line on hover */
+  transform: translateX(-50%) scaleX(0.8);
+  transition: transform 0.3s ease;
+  border-radius: 2px;
+}
+
+/* --- 3. CTA Button Styling --- */
+.ctaButton a {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  padding: 0.75rem 1.8rem; /* Thoda bada button */
+  border-radius: 50px; /* Pill shape */
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s;
+  box-shadow: 0 0 15px rgba(161, 131, 91, 0.6); /* Enhanced Glow effect */
+}
+
+.ctaButton a:hover {
+  background-color: #b59b77;
+  box-shadow: 0 0 20px rgba(161, 131, 91, 1);
+  transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* --- 4. Mobile Toggle Button --- */
+.menuToggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.menuToggle:active {
+  transform: scale(0.9);
+}
+
+/* --- 5. Mobile Navigation Container --- */
+.navMobile {
+  display: none;
+}
+
+/* 🖥️ RESPONSIVENESS - TABLET View */
+@media (max-width: 1024px) {
+  .header {
+    padding: 1rem 2.5rem; /* Padding kam kiya */
+  }
+
+  .navList {
+    gap: 1.5rem; /* Links ka gap kam kiya */
+  }
+
+  .ctaButton {
+    /* Tablet par button chota kar diya */
+    transform: scale(0.9);
+  }
+}
+
+/* 📱 RESPONSIVENESS - MOBILE View (768px and smaller) */
+@media (max-width: 768px) {
+  .header {
+    padding: 0.8rem 1.5rem;
+  }
+
+  /* Desktop elements ko chupa dein */
+  .navDesktop,
+  .ctaButton {
+    display: none;
+  }
+
+  /* Mobile toggle button ko show karein */
+  .menuToggle {
+    display: block;
+  }
+
+  /* Logo ko chota kiya mobile par */
+  .logo a {
+    font-size: 1.5rem;
+  }
+
+  .logopng {
+    width: 25px;
+    margin-right: 5px;
+  }
+
+  /* Mobile Navigation Menu */
+  .navMobile {
+    /* Jab component render ho tabhi yeh styles apply honge (React state ke zariye) */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-bg-dark);
+    /* Soft border top to separate from header */
+    border-top: 1px solid rgba(161, 131, 91, 0.2);
+    padding: 1rem 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+  }
+
+  /* Mobile Links Styling */
+  .navMobile .navList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .navMobile .navLink {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(245, 245, 245, 0.05); /* Separator line */
+  }
+
+  .navMobile .navLink:last-child {
+    border-bottom: none;
+  }
+
+  /* Mobile active link */
+  .navMobile .navLink.active {
+    background-color: rgba(161, 131, 91, 0.1);
+    color: var(--color-primary);
+  }
+  /* Mobile par underline ki zarurat nahi */
+  .navMobile .navLink.active::after,
+  .navMobile .navLink:hover::after {
+    content: none;
+  }
+}
+
+/* Mobile CTA Link Styling */
+.ctaMobileLink {
+  /* Isko CTA Button jaisa look dete hain */
+  display: block;
+  text-align: center;
+  margin: 1rem 1.5rem 0.5rem; /* Margins for spacing */
+  padding: 0.75rem 0;
+
+  background-color: var(--color-primary);
+  color: var(--color-secondary) !important; /* Force dark text */
+  font-weight: 700;
+  border-radius: 5px;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease;
+}
+
+.ctaMobileLink:hover {
+  background-color: #b59b77;
+}
+/* Mobile navigation links ki default underline hata do */
+.navMobile .navLink.active::after,
+.navMobile .navLink:hover::after {
+  content: none !important;
+}

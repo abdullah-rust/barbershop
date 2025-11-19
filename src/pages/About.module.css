@@ -1,0 +1,110 @@
+/* src/pages/About.module.css */
+
+.aboutPage {
+  background-color: var(--color-bg-dark);
+  min-height: 100vh;
+  padding: 2rem 1rem 4rem;
+}
+
+/* --- 1. Header Section --- */
+.headerSection {
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.mainTitle {
+  font-family: var(--font-family-serif);
+  font-size: 3rem;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.storyText {
+  font-size: 1.1rem;
+  color: #ccc;
+  line-height: 1.7;
+  text-align: left;
+}
+
+.storyText strong {
+  color: var(--color-primary);
+}
+
+/* --- 2. Team Section --- */
+.teamSection {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionHeading {
+  font-family: var(--font-family-serif);
+  font-size: 2.5rem;
+  color: var(--color-text-light);
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+/* 📱 Mobile Adjustments */
+@media (max-width: 768px) {
+  .aboutPage {
+    padding: 1rem 0.5rem 3rem;
+  }
+
+  .mainTitle {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .storyText {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .sectionHeading {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .teamGrid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainTitle {
+    font-size: 1.8rem;
+  }
+
+  .sectionHeading {
+    font-size: 1.6rem;
+  }
+
+  .teamGrid {
+    grid-template-columns: repeat(2, 1fr); /* Still 2 columns */
+    gap: 0.8rem;
+  }
+
+  .storyText {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .teamGrid {
+    grid-template-columns: 1fr; /* Single column on very small screens */
+  }
+}

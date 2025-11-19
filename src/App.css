@@ -1,0 +1,39 @@
+/* src/index.css (ya global.css) */
+
+/* Global Variables (Aapke Brand Colors) */
+:root {
+  --color-primary: #a1835b; /* Gold/Bronze - Barber shop vibe */
+  --color-secondary: #0a0a0a; /* Deep Black */
+  --color-text-light: #f5f5f5; /* Off-White for text */
+  --color-bg-dark: #121212; /* Dark background */
+  --font-family-serif: "Playfair Display", serif; /* Modern, classy font */
+  --font-family-sans: "Inter", sans-serif; /* Clean, modern font */
+}
+
+/* Global Reset & Body Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-sans);
+  background-color: var(--color-bg-dark); /* Dark theme */
+  color: var(--color-text-light);
+  min-height: 100vh;
+}
+
+/* Links ki default styling remove karein */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Headings ka style */
+h1,
+h2,
+h3 {
+  font-family: var(--font-family-serif);
+  color: var(--color-primary);
+}

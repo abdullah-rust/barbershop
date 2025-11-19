@@ -1,0 +1,256 @@
+/* src/pages/Home.module.css - FINAL STABLE CODE (Hero + Contact Box) */
+
+/* --- HERO SECTION CONTAINER --- */
+.heroSection {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  /* Content left, space/box right */
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  padding-right: 4rem; /* Desktop Right padding */
+}
+
+/* --- BACKGROUND IMAGE & OVERLAY --- */
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.heroBackground img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.35) grayscale(0.2);
+  transition: transform 6s ease-out;
+}
+
+.heroSection:hover .heroBackground img {
+  transform: scale(1.03);
+}
+
+/* --- CONTENT AREA (Text and Button) --- */
+.heroContent {
+  position: relative;
+  z-index: 5;
+  /* FIX: Max width kam kiya taake contact box ke liye jagah ban jaye */
+  max-width: 480px;
+  padding: 0 0 0 4rem; /* Desktop Left padding */
+}
+
+/* --- HEADLINE (H1) --- */
+.heroTitle {
+  font-family: var(--font-family-serif);
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: var(--color-text-light);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* --- SUBTITLE (P) --- */
+.heroSubtitle {
+  font-size: 1.3rem;
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+  color: #c9c9c9;
+  line-height: 1.6;
+}
+
+/* --- CTA BUTTON (Contact/Call) --- */
+.ctaWrapper {
+  display: inline-block;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 0 15px rgba(161, 131, 91, 0.7);
+}
+
+.ctaButton:hover {
+  background-color: #b59b77;
+  transform: translateY(-3px);
+}
+
+/* --- NEW: Contact/Location Info Box (Desktop/Tablet) --- */
+.contactInfoBox {
+  position: absolute;
+  bottom: 0;
+  /* FIX: Left value Hero Content ki max-width se zyada rakha taake overlap na ho. */
+  left: 520px;
+
+  z-index: 10;
+  background-color: rgba(18, 18, 18, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-top: 3px solid var(--color-primary);
+
+  padding: 1.5rem 2rem;
+  max-width: 350px;
+  width: auto;
+
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+
+  /* Mobile Centering properties ko desktop par none kiya */
+  right: auto;
+  margin: 0;
+  transform: none;
+}
+
+.contactInfoBox h3 {
+  font-family: var(--font-family-serif);
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  border-bottom: 1px dashed rgba(161, 131, 91, 0.3);
+  padding-bottom: 0.5rem;
+  text-align: left;
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.8rem;
+  color: var(--color-text-light);
+  font-size: 1rem;
+}
+
+.infoIcon {
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  margin-right: 15px;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.infoItem p {
+  margin: 0;
+}
+
+/* 🖥️ RESPONSIVENESS */
+
+/* Tablet View (1024px) */
+@media (max-width: 1024px) {
+  .heroSection {
+    padding-right: 2.5rem;
+  }
+
+  .heroContent {
+    max-width: 90%;
+    padding: 0 0 0 2.5rem;
+  }
+
+  .heroTitle {
+    font-size: 3.5rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.1rem;
+  }
+
+  .ctaButton {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+  }
+
+  .contactInfoBox {
+    /* Tablet par left value adjust ki */
+    left: 400px;
+    padding: 1rem 1.5rem;
+    max-width: 300px;
+  }
+}
+
+/* Mobile View (600px) - FIX: Guaranteed Centering */
+@media (max-width: 600px) {
+  /* Main Container Alignment */
+  .heroSection {
+    justify-content: center;
+    text-align: center;
+    padding-right: 0;
+  }
+
+  /* Content Alignment */
+  .heroContent {
+    padding: 0 1.5rem;
+    max-width: 100%;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .heroSubtitle {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  /* CTA Button Full Width */
+  .ctaWrapper {
+    display: block;
+    margin-bottom: 2rem;
+  }
+
+  .ctaButton {
+    padding: 0.8rem 2rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* 🌟 CONTACT BOX MOBILE CENTERING FIX 🌟 */
+  .contactInfoBox {
+    position: absolute;
+    bottom: 1rem;
+
+    /* Centering Method: Left 0, Right 0, Margin Auto */
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+
+    width: calc(100% - 3rem);
+    transform: none; /* Safely removed */
+    max-width: none;
+
+    background-color: rgba(18, 18, 18, 0.95);
+    padding: 1rem;
+  }
+
+  .contactInfoBox h3 {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+  }
+
+  /* Info items ko center container mein left align rakha */
+  .infoItem {
+    justify-content: flex-start;
+    margin-bottom: 0.6rem;
+  }
+
+  .infoItem p {
+    font-size: 0.9rem;
+  }
+
+  .infoIcon {
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
