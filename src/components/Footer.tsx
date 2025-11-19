@@ -20,8 +20,8 @@ const Footer: React.FC = () => {
 
   const navLinks = [
     { path: "/", name: "Home" },
-    { path: "/services", name: "Services" },
-    { path: "/about", name: "About Us" },
+    { path: "/barbershop/#/services", name: "Services" },
+    { path: "/barbershop/#/about", name: "About Us" },
   ];
 
   // Scroll to top function
