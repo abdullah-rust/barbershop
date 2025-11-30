@@ -1,10 +1,8 @@
-/* src/components/Footer.module.css */
-
 .footer {
-  background-color: var(--color-bg-dark); /* Deep Dark background */
+  background-color: var(--color-bg-dark);
   color: var(--color-text-light);
-  padding: 4rem 4rem 1rem 4rem; /* Top padding zyada rakha */
-  border-top: 3px solid var(--color-primary); /* Gold line on top */
+  padding: 4rem 4rem 1rem 4rem;
+  border-top: 3px solid var(--color-primary);
 }
 
 .footerContainer {
@@ -12,12 +10,12 @@
   justify-content: space-between;
   gap: 3rem;
   max-width: 1200px;
-  margin: 0 auto 3rem auto; /* Center aur bottom space */
+  margin: 0 auto 3rem auto;
   padding-bottom: 2rem;
 }
 
 .footerSection {
-  flex: 1; /* Equal width sections */
+  flex: 1;
   max-width: 350px;
 }
 
@@ -30,6 +28,7 @@
   font-weight: 700;
   color: var(--color-primary);
   margin-bottom: 1rem;
+  text-decoration: none; /* Link style */
 }
 
 .logopng {
@@ -58,7 +57,7 @@
 
 .socialIcon:hover {
   color: var(--color-primary);
-  transform: translateY(-3px); /* Lift effect */
+  transform: translateY(-3px);
 }
 
 /* --- 2. LINKS & 3. CONTACT --- */
@@ -79,13 +78,21 @@
   margin-bottom: 0.7rem;
 }
 
-.footerLink {
-  color: var(--color-text-light);
+/* Buttons jo Link ke liye hain */
+.footerLink,
+.footerLinkButton {
   font-size: 1rem;
-  transition: color 0.3s ease;
+  color: var(--color-text-light);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+  font-family: inherit;
 }
 
-.footerLink:hover {
+.footerLink:hover,
+.footerLinkButton:hover {
   color: var(--color-primary);
   text-decoration: underline;
 }
@@ -124,11 +131,11 @@
 /* 📱 RESPONSIVENESS */
 @media (max-width: 900px) {
   .footerContainer {
-    flex-wrap: wrap; /* Sections ko wrap karein */
+    flex-wrap: wrap;
   }
 
   .footerSection {
-    flex: 1 1 45%; /* Tablet par 2 columns */
+    flex: 1 1 45%;
     margin-bottom: 2rem;
   }
 }
@@ -139,18 +146,18 @@
   }
 
   .footerContainer {
-    flex-direction: column; /* Mobile par single column */
+    flex-direction: column;
     gap: 2rem;
     margin-bottom: 2rem;
   }
 
   .footerSection {
-    flex: 1 1 100%; /* Full width */
+    flex: 1 1 100%;
     max-width: 100%;
   }
 
   .logo {
-    justify-content: center; /* Logo ko center kiya */
+    justify-content: center;
     margin-bottom: 0.5rem;
   }
 
@@ -159,6 +166,6 @@
   }
 
   .socialLinks {
-    justify-content: center; /* Icons ko center kiya */
+    justify-content: center;
   }
 }
