@@ -1,5 +1,6 @@
 // app/components/Footer.tsx
 import React from "react";
+import { Link, useNavigate } from "react-router-dom"; //  ✔ React Router
 import {
   FaInstagram,
   FaWhatsapp,
@@ -12,6 +13,8 @@ import styles from "./Footer.module.css";
 import kenchi from "../assets/kenchi.png";
 
 const Footer: React.FC = () => {
+  const navigate = useNavigate();
+
   const socialLinks = [
     { icon: FaInstagram, url: "https://www.instagram.com/saeed_haircraft/" },
     { icon: FaWhatsapp, url: "https://wa.me/923003798901" },
@@ -20,21 +23,22 @@ const Footer: React.FC = () => {
 
   const navLinks = [
     { path: "/", name: "Home" },
-    { path: "/barbershop/#/services", name: "Services" },
-    { path: "/barbershop/#/about", name: "About Us" },
+    { path: "/services", name: "Services" },
+    { path: "/about", name: "About Us" },
   ];
 
-  // Scroll to top function
-  const scrollToTop = () => {
+  const onNavigate = (path: string) => {
+    navigate(path);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContainer}>
-        {/* 1. BRAND & SOCIAL */}
+
+        {/* BRAND & SOCIAL */}
         <div className={styles.footerSection}>
-          <a href="/" className={styles.logo}>
+          <Link to="/" className={styles.logo} onClick={() => onNavigate("/")}>
             <img
               src={kenchi}
               alt="Saeed Hair Craft Logo"
@@ -43,7 +47,8 @@ const Footer: React.FC = () => {
               height={40}
             />
             <span>Saeed Hair Craft</span>
-          </a>
+          </Link>
+
           <p className={styles.tagline}>Crafting Confidence Since 2024.</p>
 
           <div className={styles.socialLinks}>
@@ -61,21 +66,21 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* 2. NAVIGATION LINKS */}
+        {/* NAV LINKS */}
         <div className={styles.footerSection}>
           <h3 className={styles.sectionTitle}>Quick Links</h3>
           <ul className={styles.linkList}>
             {navLinks.map((link, index) => (
               <li key={index}>
-                <a
-                  href={link.path}
+                <button
                   className={styles.footerLink}
-                  onClick={scrollToTop}
+                  onClick={() => onNavigate(link.path)}
                 >
                   {link.name}
-                </a>
+                </button>
               </li>
             ))}
+
             <li>
               <a href="tel:+923003798901" className={styles.footerLink}>
                 Call Us Now
@@ -84,7 +89,7 @@ const Footer: React.FC = () => {
           </ul>
         </div>
 
-        {/* 3. CONTACT & LOCATION */}
+        {/* CONTACT */}
         <div className={styles.footerSection}>
           <h3 className={styles.sectionTitle}>Contact & Visit</h3>
 
@@ -98,7 +103,6 @@ const Footer: React.FC = () => {
             <p>+92 300 3798901</p>
           </div>
 
-          {/* Abdullah info */}
           <div className={styles.contactItem}>
             <FaUserAlt className={styles.contactIcon} />
             <p>
@@ -120,7 +124,6 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      {/* COPYRIGHT BAR */}
       <div className={styles.footerBottom}>
         <p>
           &copy; {new Date().getFullYear()} Saeed Hair Craft. All Rights
